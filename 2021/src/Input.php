@@ -4,12 +4,17 @@ namespace App;
 
 class Input
 {
+    /**
+     * @var array|null
+     */
+    protected static null|array $fakeData = null;
 
-    protected static $fakeData;
-
+    /**
+     * @return array
+     */
     public static function get(): array
     {
-        if(!is_null(self::$fakeData)){
+        if (!is_null(self::$fakeData)) {
             return self::$fakeData;
         }
 
@@ -19,6 +24,9 @@ class Input
         return array_filter(explode(PHP_EOL, $content));
     }
 
+    /**
+     * @param array $data
+     */
     public static function fake(array $data)
     {
         self::$fakeData = $data;

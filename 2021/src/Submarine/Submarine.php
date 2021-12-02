@@ -4,8 +4,16 @@ namespace App\Submarine;
 
 class Submarine
 {
+    /**
+     * @var bool
+     */
     private bool $useAim = false;
 
+    /**
+     * @param int $horizontal
+     * @param int $depth
+     * @param int $aim
+     */
     public function __construct(
         public int $horizontal = 0,
         public int $depth = 0,
@@ -14,6 +22,9 @@ class Submarine
     {
     }
 
+    /**
+     * @param array $commands
+     */
     public function moves(array $commands): void
     {
         foreach ($commands as $command) {
@@ -21,6 +32,9 @@ class Submarine
         }
     }
 
+    /**
+     * @param string $command
+     */
     public function executeCommand(string $command): void
     {
         [$type, $unit] = explode(' ', $command);
@@ -32,6 +46,9 @@ class Submarine
         };
     }
 
+    /**
+     * @return $this
+     */
     public function useAim(): self
     {
         $this->useAim = true;
@@ -39,7 +56,10 @@ class Submarine
         return $this;
     }
 
-    protected function increasesHorizontal(int $unit)
+    /**
+     * @param int $unit
+     */
+    protected function increasesHorizontal(int $unit): void
     {
         $this->horizontal += $unit;
 
@@ -48,21 +68,26 @@ class Submarine
         }
     }
 
-    protected function increasesDepth(int $unit)
+    /**
+     * @param int $unit
+     */
+    protected function increasesDepth(int $unit): void
     {
         if ($this->useAim) {
-
             $this->aim += $unit;
         } else {
             $this->depth += $unit;
         }
     }
 
-    protected function decreasesDepth(int $unit)
+    /**
+     * @param int $unit
+     */
+    protected function decreasesDepth(int $unit): void
     {
         if ($this->useAim) {
             $this->aim -= $unit;
-        }else{
+        } else {
             $this->depth -= $unit;
         }
     }

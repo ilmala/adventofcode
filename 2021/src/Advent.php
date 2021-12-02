@@ -4,6 +4,9 @@ namespace App;
 
 class Advent
 {
+    /**
+     * @var int
+     */
     private static int $star;
 
     /**

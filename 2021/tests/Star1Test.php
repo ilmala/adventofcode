@@ -4,7 +4,7 @@ use App\Advent;
 use App\Input;
 use App\Submarine\Sonar;
 
-it('can het sonar sweep measurement', function () {
+it('can get sonar sweep measurement', function () {
 
     Advent::day(1);
 
