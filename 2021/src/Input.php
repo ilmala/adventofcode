@@ -14,7 +14,7 @@ class Input
         }
 
         $starNumber = Advent::getStar();
-        $content = file_get_contents(__DIR__ . "/../inputs/star_{$starNumber}_input.txt");
+        $content = file_get_contents(__DIR__ . "/../inputs/day_{$starNumber}_input.txt");
 
         return array_filter(explode(PHP_EOL, $content));
     }
